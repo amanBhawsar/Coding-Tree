@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script>
+            var tab="    ";
+            var rating=[];
+            var title=[],desc=[];   //to store data into memory untill it is not closed
+            function addPost() {    //function to add new posts
+              var t = prompt("Please enter the Title:", "Enter here");
+              var d = prompt("Please enter the Description:", "Enter here");
+              
+              if (t == null || t == "" || d == null || d == "") { //if fields are empty
+                  document.getElementById("result").innerHTML = "Please don't leave fields empty";
+              } else {
+                  title.push(t);
+                  desc.push(d);
+                  rating.push(" ");
+                  document.getElementById("result").innerHTML = "Success";
+              }
+              
+            }
+            function getAllPost(){  //function to output all posts
+                var i=0;
+                var end=title.length;   //length of array
+                var res="";
+                var output="";
+                res="Id\tTitle\tDescription <br>";
+                while(end--){
+                    output+=i.toString()+tab+title[i]+tab+desc[i]+"<br>";   //saving each tuple to a variable
+                    i++;
+                }
+                document.getElementById("result").innerHTML = res+output;
+            }
+            function deletePost(){  //function to delete post using id
+                var t = prompt("Please enter the id to be deleted", "Enter here");
+                title.splice(t,1);//splice is used to removing element from index t of array
+                desc.splice(t,1);
+                getAllPost();
+            }
+            function updatePost(){  //function to update post using id
+                var td = prompt("Please enter the id to be updated", "Enter here");
+                var t = prompt("Please enter the new Title:", "Enter here");
+                var d = prompt("Please enter the new Description:", "Enter here");
+                if (t == null || t == "" || d == null || d == "") { //if fields are empty
+                    document.getElementById("result").innerHTML = "Please don't leave fields empty";
+              } else {
+                  title[td]=t;  //set updated values
+                  desc[td]=d;
+                  document.getElementById("result").innerHTML = "Success";
+              }
+            }
+            
+            function getTitleRow(){ //for searching accor to title
+                var t = prompt("Please enter the Title to be searched:", "Enter here");
+                var k;
+                for(k=0;k<title.length;k++){
+                    var pos=title[k].localeCompare(t);  //check if title entered by user is matched
+                    if(pos==0){     //if matched then break
+                        break;
+                    }
+                }
+                if(pos!=0){
+                    document.getElementById("result").innerHTML = "Title not found";
+                }
+                else{
+                    output=k.toString()+tab+title[k]+tab+desc[k]+"<br>";    //to store rating along with other details and print it
+                    var res="Id\tTitle\tDescription <br>";
+                    document.getElementById("result").innerHTML = res+output;
+                }
+            }
+            function getDescRow(){  //for searching accor to description
+                var k;
+                var t = prompt("Please enter the Description to be searched:", "Enter here");
+                for(k=0;k<desc.length;k++){
+                    var pos=desc[k].localeCompare(t);   //search for description
+                    if(pos==0){         //if description is matched
+                        break;
+                    }
+                }
+                if(pos!=0){
+                    document.getElementById("result").innerHTML = "Description not found";
+                }
+                else{
+                    output=k.toString()+tab+title[k]+tab+desc[k]+"<br>";
+                    var res="Id\tTitle\tDescription <br>";
+                    document.getElementById("result").innerHTML = res+output;
+                }
+            }
+            function giveRating(){  //to give rating if valid
+                var t = prompt("Please enter the id to provide rating", "Enter here");
+                var star = prompt("Please enter rating out of 5", "Enter here");
+                if(star >=0 && star <=5)    //check if rating is valid
+                    rating[t]=star;
+            }         
+            function viewAllRating(){
+                    var out="";
+                    for(var p=0;p<rating.length;p++){   //print rating if present
+                        if(rating[p].localeCompare(" ")!=0){
+                            out+=p.toString()+tab+title[p]+tab+desc[p]+tab+rating[p]+"<br>";    //if rating is available the store it 
+                        }
+                    }
+                    document.getElementById("result").innerHTML = out;  //print stored data
+            }
+        </script>
+        <div style="background-color:#006400">
+            <h2 style="color:yellow;margin-left: 10%;">Basic Functionalities:</h2>
+            <div style="background-color:GreenYellow" >
+            <br>
+            <button style="margin-left: 10%;background-color: #fCAF50;font-size: 18px;" onclick="addPost()">Add Post</button>
+            <button style="margin-left: 20%;background-color: #fCAF50;font-size: 18px;" onclick="updatePost()">Update Post</button><br><br>
+            <button style="margin-left: 10%;background-color: #fCAF50;font-size: 18px;" onclick="deletePost()" >Delete Post</button>
+            <button style="margin-left: 18.5%;background-color: #fCAF50;font-size: 18px;" onclick="getAllPost()">Get all Post</button><br><br>
+            </div>
+            <h2 style="color:yellow;margin-left: 10%;">Additional Functionalities:</h2>
+            <div style="background-color:GreenYellow">
+            <br>
+            <h3>Search:</h3>
+            <button style="margin-left: 10%;background-color: tomato;font-size: 18px;" onclick="getTitleRow()">By Title</button>
+            <button style="margin-left: 20%;background-color: tomato;font-size: 18px;" onclick="getDescRow()">By Description</button><br><br>
+            <h3>Rating(out of 5):</h3>
+            <button style="margin-left: 10%;background-color: #f44336;font-size: 18px;" onclick="giveRating()">Give Rating</button>
+            <button style="margin-left: 18%;background-color: #f44336;font-size: 18px;" onclick="viewAllRating()">View all Rating</button><br><br>
+            </div>
+            <p style="color:yellow;" id="result"></p>
+        </div>
+    </body>
+</html>
