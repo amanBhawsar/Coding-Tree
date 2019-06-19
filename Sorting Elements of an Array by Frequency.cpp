@@ -1,45 +1,24 @@
-#include<bits/stdc++.h>
-using namespace std;
-int main(){
-	int t;
-	cin >> t;
-	while(t--){
-	    int n,k;
-	    cin >> n;
-	    int arr[1001]={0};
-	    int arrClone[1001]={0};
-	    for(int i=0;i<n;i++){
-	        cin >> k;
-	        arr[k]++;
-	        arrClone[k]++;
-	    }
-	    sort(arr,arr+1000);
-	   // for(int i=999;i>=0;i--){
-	   //     if(arr[i]==0){
-	   //         break;
-	   //     }
-	   //     cout << arr[i] << endl;
-	   // }
-	    
-	    
-	    for(int i=999;i>=0;i--){
-	       // cout<<arr[i]<<" ";
-	        if(arr[i]==0){
-	            break;
-	        }
-	        for(int j=0;j<=999;j++){
-	            if(arr[i]==arrClone[j]){
-	                int freq = arr[i];
-	                arrClone[j]=0;
-	                //cout<<freq<<" ";
-	                while(freq--){
-	                    cout << j << " ";
-	                }
-	                break;
-	            }
-	        }
-	    }
-	    cout << endl;
-	}
-	return 0;
+/*This is a function problem.You only need to complete the function given below*/
+//Complete this function
+//The array is declared globally
+void sortByFreq(int arr[],int n)
+{
+    int hash[62]={0};
+    int sorted[62]={0};
+    for(int i=0;i<n;i++){
+        hash[arr[i]]++;
+        sorted[arr[i]]++;
+    }
+    sort(sorted,sorted+61);
+    for(int j=60;j>=0;j--){
+        for(int i=1;i<61;i++){
+            if(hash[i]==sorted[j]){
+                for(int k=1;k<=hash[i];k++){
+                    cout<<i<<" ";
+                }
+                hash[i]=0;
+            }
+        }
+    }
+        
 }
