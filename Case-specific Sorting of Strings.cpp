@@ -1,22 +1,34 @@
-string caseSort(string str, int n){
-    int i,k=0;
-    string temp = str;
-    string res;
-    sort(temp.begin(),temp.end());
-    for(i=0;i<temp.length();i++){
-        if(temp[i]-'a'<26 && temp[i]-'a'>=0){
-            break;
-        }
-    }
-    for(int j=0;j<str.length();j++){
-        if(str[j]-'a'<26 && str[j]-'a'>=0){  //smallcase
-            res.push_back(temp[i]);
-            // cout<<str[j]<<" ";
-            i++;
-        }else{
-            res.push_back(temp[k]);
-            k++;
-        }
-    }
-    return res;
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+ {
+	int t;
+	cin>>t;
+	while(t--){
+	    int n;
+	    string str;
+	    cin>>n;
+	    vector<char> s;
+	    vector<char> c;
+	    cin >> str;
+	    for(int i=0;i<str.length();i++){
+	        if(str[i]>='a' && str[i]<='z'){
+	            s.push_back(str[i]);
+	        }else{
+	            c.push_back(str[i]);
+	        }
+	    }
+	    sort(s.begin(),s.end());
+	    sort(c.begin(),c.end());
+	    int j=0,k=0;
+	    for(int i=0;i<str.length();i++){
+	        if(str[i]>='a' && str[i]<='z'){
+	            cout << s[j++];
+	        }else{
+	            cout << c[k++];
+	        }
+	    }
+	    cout << endl;
+	}
+	return 0;
 }

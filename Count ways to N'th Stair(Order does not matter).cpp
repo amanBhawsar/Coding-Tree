@@ -1,13 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
-int main()
- {
-	int t;
-	cin>>t;
-	while(t--){
-	    int n;
-	    cin>>n;
-	    cout << (n/2)+1<<endl;
-	}
-	return 0;
+long long countWays(int m){
+    return m/2 + 1;
 }
