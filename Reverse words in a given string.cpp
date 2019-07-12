@@ -1,38 +1,23 @@
-#include <iostream>
-#include <stack>
-using namespace std;
-
-int main() {
-	int t;
-	cin >> t;
-	while(t--){
-	    char arr[3000];
-	    cin >> arr;
-	    stack<char> final;
-	    stack<char> temp;
-	    int i=0;
-	    while(arr[i]!='\0'){
-	        if(arr[i]=='.'){
-	            while(!temp.empty()){
-	                final.push(temp.top());
-	                temp.pop();
-	            }
-	            final.push('.');
-	        }else{
-	            temp.push(arr[i]);
-	        }
-	        i++;
-	    }
-	    while(!temp.empty()){
-	                final.push(temp.top());
-	                temp.pop();
-	    }
-	    
-	    while(!final.empty()){
-	                cout << final.top();
-	                final.pop();
-	    }
-	    cout << endl;
-	}
-	return 0;
+void reverseWords(char *s) {
+    string ans = "";
+    string temp = "";
+    for(int i=0;i<strlen(s);i++){
+        if(s[i]=='.'){
+            reverse(temp.begin(),temp.end());
+            ans+=temp;
+            ans=ans+".";
+            temp = "";
+        }else{
+            temp+=getString(s[i]);
+        }
+    }
+    if(temp.length()>0){
+        reverse(temp.begin(),temp.end());
+            ans+=temp;
+    }
+    reverse(ans.begin(),ans.end());
+    for(int i=0;i<ans.length();i++){
+        cout << ans[i];
+    }
+    s[0]='\0';
 }
