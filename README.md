@@ -4,10 +4,10 @@ I am a regular participant at various online coding platforms like Codeforces, C
 ## Link to profile:-
 Codechef: https://www.codechef.com/users/aman_bhawsar
 
+HackerRank: https://www.hackerrank.com/amanbhawsar99
+
 HackerEarth: https://www.hackerearth.com/@amanbhawsar99
 
 GeeksForGeeks: https://auth.geeksforgeeks.org/user/amanbhawsar99/profile
-
-HackerRank: https://www.hackerrank.com/amanbhawsar99
 
 CodeForces: https://codeforces.com/profile/amanbhawsar99
