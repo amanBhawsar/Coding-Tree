@@ -1,0 +1,13 @@
+class Solution {
+public:
+    string convertToTitle(int n) {
+        string ans="";
+        while(n>=1){
+            // cout << (n-1)%26<< " ";
+            ans+=('A' + (n-1)%26);
+            n=(n-1)/26;
+        }
+        reverse(ans.begin(),ans.end());
+        return ans;
+    }
+};
