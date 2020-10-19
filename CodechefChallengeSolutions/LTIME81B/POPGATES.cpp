@@ -4,7 +4,7 @@
 using namespace std;
 ll r[max];
 int main() {
-    ll  w, a,b,c,d,n,m,k,t;
+    ll  n,m,t;
     cin >> t;
     for (ll e = 0; e < t; e++) {
         cin >> n >> m;
