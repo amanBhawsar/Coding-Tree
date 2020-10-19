@@ -8,7 +8,6 @@ typedef struct node
     struct node *next;
 }node;
 node *d[11];
-void init();
 void init()
 {
     int i;
