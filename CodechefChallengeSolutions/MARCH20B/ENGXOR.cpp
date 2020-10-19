@@ -15,8 +15,6 @@ bool checkbit(long long n)
     return 0;
 }
 int main() {
-	ios_base::sync_with_stdio(false);
-	cin.tie(NULL);
 long long t;
 	scanf("%lld",&t);
 	while(t--)
