@@ -20,8 +20,7 @@ int main() {
 	        else
 	        c+=a[i-1]-a[i]-1;
 	    }
-	    cout<<c;
-	    cout<<"\n";
+	    cout<<c<<"\n";
 	}
 	return 0;
 }
