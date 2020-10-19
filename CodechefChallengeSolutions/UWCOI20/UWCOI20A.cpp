@@ -8,12 +8,14 @@ int main() {
 	while(t--)
 	{
 	cin>>n;
-	int a[n];
+	int a[n],maxi=INT_MIN;
 	for(int i=0;i<n;i++)
 	{
 	    cin>>a[i];
+		if(a[i]>maxi)
+		{maxi=a[i];}
 	}
-	cout<<*max_element(a,a+n)<<endl;
+	cout<<maxi<<endl;
 }
 	return 0;
 }
